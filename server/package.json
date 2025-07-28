@@ -1,0 +1,25 @@
+{
+  "name": "chat-basico",
+  "version": "1.0.0",
+  "description": "Chat basado en whatsapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaRk4rxd/Chat-basico.git"
+  },
+  "author": "David Olaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaRk4rxd/Chat-basico/issues"
+  },
+  "homepage": "https://github.com/DaRk4rxd/Chat-basico#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.16.5",
+    "nodemon": "^3.1.10",
+    "socket.io": "^4.8.1"
+  }
+}
