@@ -1,7 +1,12 @@
 // client/client.js
+const response = await fetch('/api/messages');
+const historial = await response.json();
 
 // 1. Conexión con el servidor de Sockets
 const socket = io();
+
+
+// Mostrar historial en la UI antes de usar Socket.IO
 
 // 2. Referencias a los elementos del DOM
 const form = document.getElementById('form');
@@ -10,6 +15,8 @@ const messages = document.getElementById('messages');
 
 // Simulación de un nombre de usuario. Más adelante, esto vendrá de un login.
 const username = prompt("¿Cuál es tu nombre de usuario?");
+
+historial.forEach(msg => renderMensaje(msg));
 
 // 3. Lógica para enviar mensajes
 form.addEventListener('submit', (e) => {
@@ -28,8 +35,13 @@ form.addEventListener('submit', (e) => {
 
 // 4. Lógica para recibir mensajes
 socket.on('chat message', (msg) => {
-    const item = document.createElement('li');
-    item.textContent = `${msg.user}: ${msg.text}`;
-    messages.appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight); // Auto-scroll hacia abajo
+    renderMensaje(msg)
 });
+
+
+function renderMensaje(msg) {
+  const li = document.createElement('li');
+  li.textContent = `${msg.user}: ${msg.text}`;
+  document.getElementById('messages').appendChild(li);
+  window.scrollTo(0, document.body.scrollHeight);
+}
