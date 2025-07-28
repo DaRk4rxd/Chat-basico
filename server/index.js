@@ -4,6 +4,7 @@ import { Server } from 'socket.io';
 import { connectDB } from './config/db.js';
 import { chatHandler } from './sockets/chat.js';
 import messageRoutes from './routes/messages.js';
+import 'dotenv/config'; 
 
 // Inicialización
 const app = express();
@@ -22,7 +23,7 @@ app.use('/api/messages', messageRoutes);
 chatHandler(io);
 
 // Iniciar servidor
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`🚀 Servidor escuchando en el puerto ${PORT}`);
 });
