@@ -2,16 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Chat en Tiempo Real</h1>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-        <input id="input" autocomplete="off" placeholder="Escribe un mensaje..." />
-        <button>Enviar</button>
-    </form>
+    <div class="chat-container">
+        <h1>Chat en Tiempo Real</h1>
+        <ul id="messages">
+            <li class="received">Hola! ¿Cómo estás?</li>
+            <li class="sent">¡Hola! Bien, ¿y tú? Preparando todo para el chat.</li>
+            <li class="received">¡Genial! Se ve increíble.</li>
+        </ul>
+        <form id="form" action="">
+            <input id="input" autocomplete="off" placeholder="Escribe un mensaje..." />
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
+            </button>
+        </form>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="client.js"></script>

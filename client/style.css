@@ -1,0 +1,139 @@
+/* --- Estilos Globales y Fondo --- */
+:root {
+    --whatsapp-bg-color: #E5DDD5;
+    --whatsapp-header-color: #005E54;
+    --whatsapp-chat-bg: #F0F0F0;
+    --message-sent-bg: #DCF8C6;
+    --message-received-bg: #FFFFFF;
+    --whatsapp-green: #128C7E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--whatsapp-bg-color);
+    /* Fondo con patrón tipo WhatsApp */
+    background-image: url('https://i.ibb.co/6bs4K3c/whatsapp-bg.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* --- Contenedor Principal del Chat --- */
+.chat-container {
+    width: 100%;
+    height: 100%;
+    max-width: 100%; /* Ocupa toda la pantalla en móvil */
+    background: var(--whatsapp-chat-bg);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Encabezado del Chat --- */
+h1 {
+    background-color: var(--whatsapp-header-color);
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: left;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* --- Lista de Mensajes --- */
+#messages {
+    flex-grow: 1; /* Ocupa todo el espacio disponible */
+    list-style-type: none;
+    padding: 20px;
+    overflow-y: auto; /* Permite el scroll */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* --- Estilos de cada Mensaje --- */
+#messages li {
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 75%;
+    word-wrap: break-word; /* Asegura que el texto largo no se desborde */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Mensaje recibido (izquierda) */
+#messages li.received {
+    background-color: var(--message-received-bg);
+    align-self: flex-start; /* Se alinea a la izquierda */
+}
+
+/* Mensaje enviado (derecha) */
+#messages li.sent {
+    background-color: var(--message-sent-bg);
+    align-self: flex-end; /* Se alinea a la derecha */
+}
+
+/* --- Formulario de Envío --- */
+#form {
+    display: flex;
+    padding: 10px;
+    background-color: var(--whatsapp-chat-bg);
+    border-top: 1px solid #ddd;
+    align-items: center;
+}
+
+#input {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+#input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(18, 140, 126, 0.5);
+}
+
+#form button {
+    background-color: var(--whatsapp-green);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+#form button:hover {
+    background-color: #107a6e;
+}
+
+/* --- Estilos para Escritorio (Responsive) --- */
+@media (min-width: 768px) {
+    body {
+        /* Un fondo más oscuro para que el chat resalte */
+        background-color: #111b21;
+    }
+
+    .chat-container {
+        max-width: 800px; /* Ancho máximo en escritorio */
+        height: 95vh;     /* Altura del 95% de la ventana */
+        max-height: 900px;
+        border-radius: 5px;
+        overflow: hidden; /* Para que los bordes redondeados se apliquen */
+    }
+}
